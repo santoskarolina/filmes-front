@@ -14,7 +14,7 @@
 
 
 ##### :small_blue_diamond: API utilizada:
-- https://github.com/anna104016/filmes-api
+- https://github.com/santoskarolina/filmes-backend
 
 #### :small_blue_diamond: Sistema em execução
 ![DOMAIN MODEL](https://github.com/santoskarolina/html/blob/main/html/filmes.gif)
