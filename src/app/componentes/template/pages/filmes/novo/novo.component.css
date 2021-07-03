@@ -1,0 +1,65 @@
+.container{
+    display: flex;
+    width: 100%;
+    background-color:#000;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.content, .form{
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    width: 60%;
+    margin: 20px 0px;
+}
+
+.form{
+    background-color: #343a40;
+    padding: 20px 20px;
+
+    border-radius: 20px;
+}
+
+.botoes button{
+    padding: 0px 20px;
+    margin: 0px 10px;
+    width: 120px;
+}
+.form input, mat-label{
+    color: #fff;
+}
+
+.btn-salvar{
+    background-color: #e91e63;
+}
+
+.btn-cancelar{
+    background-color: #d90429;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 700px) {
+    .content{
+        width: 80%;
+    }
+
+    .botoes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .botoes button{
+        margin: 10px 0px;
+        width:90%;
+    }
+}

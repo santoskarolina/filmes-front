@@ -1,0 +1,100 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="content">
+        <div class="form">
+            <mat-form-field >
+                <mat-label>Titulo</mat-label>
+                <input 
+                required
+                matInput 
+                placeholder="Ex. Os vingadores"
+                name="titulo"
+                [(ngModel)]="novoFilme.titulo"
+                >
+            </mat-form-field>
+
+            <mat-form-field >
+                <mat-label>Link da foto</mat-label>
+                <input 
+                    type="url"
+                    required
+                    matInput 
+                    placeholder="https://www.linkFoto.com/"
+                    name="linkFoto"
+                    [(ngModel)]="novoFilme.linkFoto"
+                    >
+            </mat-form-field>
+
+            <mat-form-field >
+                <mat-label>Ano de lançamento</mat-label>
+                <input 
+                    type="number"
+                    required
+                    matInput 
+                    placeholder="2000"
+                    name="dataLancamento"
+                    [(ngModel)]="novoFilme.dataLancamento"
+                    >
+            </mat-form-field>
+
+            <mat-form-field >
+                <mat-label>Descrição</mat-label>
+                <input 
+                    required
+                    matInput 
+                    placeholder="Vingadores encontram Thanos"
+                    name="descricao"
+                    [(ngModel)]="novoFilme.descricao"
+                    >
+            </mat-form-field>
+
+            <mat-form-field >
+                <mat-label>Nota</mat-label>
+                <input 
+                    type="number"
+                    required
+                    matInput 
+                    placeholder="10"
+                    name="nota"
+                    [(ngModel)]="novoFilme.nota"
+                    >
+            </mat-form-field>
+
+            <mat-form-field >
+                <mat-label>Link do IMdb</mat-label>
+                <input 
+                    type="url"
+                    required
+                    matInput 
+                    placeholder="https://www.imdb.com/"
+                    name="linkIMDB"
+                    [(ngModel)]="novoFilme.linkIMDB"
+                    >
+            </mat-form-field>
+
+            <mat-form-field class="novo-content">
+                <mat-label>Categoria</mat-label>
+                <mat-select [(value)]="novoFilme.categoria" required>
+                  <mat-option *ngFor="let categoria of listCategorias" value="{{categoria.id}}">{{categoria.nome}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="novo-content">
+                <mat-label>Classificação</mat-label>
+                <mat-select [(value)]="novoFilme.classificacao" required>
+                  <mat-option *ngFor="let classificacao of listaClassificacoes" value="{{classificacao.id}}">{{classificacao.nome}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            <div class="botoes">
+                <button mat-raised-button class="btn-salvar" (click)="salvar()">Salvar</button>
+                <button mat-raised-button class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<app-footer></app-footer>

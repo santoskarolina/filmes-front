@@ -1,0 +1,171 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+
+    align-items: center;
+    background-color: #000;
+
+    padding: 20px 0px;
+}
+
+.content{
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+}
+
+.infos{    
+    display: flex;
+    flex-direction:row;
+    padding: 20px 10px;
+    margin: 0px 20px;
+    
+}
+
+.textos{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textos p{
+    margin: 8px 0px;
+}
+
+.title{
+    font-size:50px;
+    font-weight: 700;
+}
+
+.descricao, .nota, .data{
+    font-size:20px;
+}
+
+.classificacao{
+    padding: 8px 4px;
+    border-radius: 10px;
+
+    width: 120px;
+
+    text-align: center;
+    font-weight: 500;
+}
+
+.classLivre{
+    background-color: rgb(0, 226, 19) !important;
+    
+    color: #000;
+}
+
+.class10{
+    background-color: rgb(0, 25, 248);
+}
+
+.class12{
+    background-color: rgb(248, 112, 0);
+}
+
+.class16{
+    background-color: rgb(248, 0, 0);
+}
+
+.class18{
+    background-color: rgb(0, 0, 0);
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.classificacao p{
+    margin: 0px;
+}
+
+.img img {
+    width: 350px;
+    max-width:350px;
+    max-height: 800px;
+}
+
+
+.textos, .img{
+    margin: 0px 30px;
+}
+
+.link{
+    width: 140px;
+    text-align: center;
+    margin: 10px 0px;
+
+    padding: 2px 10px;
+    font-size: 18px;
+    border-radius: 18px;
+
+    transition: all 0.40s ease 0s;
+}
+
+.delete{
+    background-color: red;
+}
+
+.new{
+    background-color: transparent;
+    border: 1px solid #fff;
+    transition: all 0.40s ease 0s;
+}
+
+.new:hover{
+    background-color:#ccc;
+    color: #000 !important;
+    border: 1px solid #000;
+}
+
+
+
+.img img{
+    width: 350px;
+    max-width:350px;
+}
+
+.textos a{
+    text-decoration: none;
+    color: #fff;
+    margin: 0px;
+}
+
+@media screen and (max-width: 700px) {
+    .infos{
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction:column;
+        width: 90%;
+    }
+    .title{
+        font-size:30px;
+    }
+
+    .textos{
+        align-items: center;
+        text-align:center;
+        width: 90%;
+        margin: 0px;
+        margin-bottom: 40px;
+    }
+
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+
+    .img img{
+        width: 200px;
+    }
+}
