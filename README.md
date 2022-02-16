@@ -17,4 +17,4 @@
 - https://github.com/santoskarolina/filmes-backend
 
 #### :small_blue_diamond: Sistema em execução
-![DOMAIN MODEL](https://github.com/santoskarolina/html/blob/main/html/filmes.gif)
+![DOMAIN MODEL](https://github.com/santoskarolina/html/blob/main/assets/filmes.gif)
