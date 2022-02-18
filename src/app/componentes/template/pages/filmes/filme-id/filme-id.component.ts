@@ -11,33 +11,13 @@ import { ServiceService } from '../services/service.service';
 })
 export class FilmeIdComponent implements OnInit {
 
-  filmeDetalhes : FilmeModel ={
-    id: '',
-    titulo: '',
-    linkFoto : '',
-    dataLancamento : '',
-    descricao: '',
-    nota: '',
-    linkIMDB: '',
-    categoria: {
-      id: '',
-      nome: '',
-    },
-    classificacao: {
-      id: '',
-      nome: '',
-    }
-  }
+  filmeDetalhes : FilmeModel = new FilmeModel()
 
-  classLivre: String = "Livre";
-  class10: String = "10 anos";
-  class12: String = "12 anos";
-  class16: String = "16 anos";
-  class18: String = "18 anos";
-  semClassificacao: String = "";
-
-  constructor(private router: Router, private active: ActivatedRoute, 
-    private service: ServiceService, private elements: ElementRef) { }
+  constructor(
+    private router: Router,
+    private active: ActivatedRoute,
+    private service: ServiceService
+  ) { }
 
   ngOnInit(): void {
     this.filmeDetalhes.id = this.active.snapshot.paramMap.get('id');
@@ -46,10 +26,11 @@ export class FilmeIdComponent implements OnInit {
 
   findById(): void{
     this.service.findById(this.filmeDetalhes.id).subscribe(
-      response => {
-        this.filmeDetalhes = response;
-      }
-    )
+      filme => {
+        this.filmeDetalhes = filme;
+      }, error => {
+        this.service.mensagem('Não foi possível retornar o filme')
+      })
   }
 
   deletar(): void{

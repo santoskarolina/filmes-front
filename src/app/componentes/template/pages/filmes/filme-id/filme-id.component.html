@@ -1,22 +1,35 @@
 <div class="container">
+
     <div class="content">
 
         <div class="infos">
             <div class="textos">
+
                 <p class="title">{{filmeDetalhes.titulo}}</p>
+
                 <p class="descricao">{{filmeDetalhes.descricao}}</p>
+
                 <p class="data">Ano do lançamento {{filmeDetalhes.dataLancamento}}</p>
+
                 <p>Categoria {{filmeDetalhes.categoria.nome}}</p>
+
                 <p class="classificacao classLivre">{{filmeDetalhes.classificacao.nome}}</p>
+
                 <p class="nota"> Nota do público {{filmeDetalhes.nota}}</p>
+
                 <a href={{filmeDetalhes.linkIMDB}} target="_blank" mat-raised-button class="link new">
                    Link do Imdb
                 </a>
+
                 <button mat-raised-button (click)="deletar()" class="link delete">Deletar</button>
+
             </div>
+
             <div class="img">
                 <img src={{filmeDetalhes.linkFoto}} />
             </div>
         </div>
+
     </div>
+
 </div>

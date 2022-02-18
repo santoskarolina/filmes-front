@@ -1,19 +1,26 @@
 <div class="container">
+
     <div class="content">
 
         <div class="cards">
             <mat-card class="card" *ngFor="let filme of listaFimes">
+
                 <mat-card-title class="card-title">{{filme.titulo}}</mat-card-title>
+
                 <mat-card-subtitle class="card-subtitle">{{filme.categoria}}</mat-card-subtitle>
+
                 <mat-card-content class="card-content">
                     <img src={{filme.linkFoto}}/>
                 </mat-card-content>
+
                 <mat-card-subtitle class="card-subtitle">{{filme.dataLancamento}}</mat-card-subtitle>
+
                 <mat-card-footer class="card-footer">
                     <a routerLink="/filme/{{filme.id}}" mat-raised-button>
                         Visualizar
                       </a>
                 </mat-card-footer>
+
             </mat-card>
 
         </div>

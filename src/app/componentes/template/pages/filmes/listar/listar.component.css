@@ -5,7 +5,9 @@
 
     align-items: center;
     background-color: #000;
-    align-items: center
+    align-items: center;
+    min-height: 100%;
+
 }
 
 .content{
