@@ -5,6 +5,7 @@
 
     align-items: center;
     background-color: #000;
+    min-height: 100%;
 
     padding: 20px 0px;
 }
@@ -20,12 +21,12 @@
     padding: 20px 0px;
 }
 
-.infos{    
+.infos{
     display: flex;
     flex-direction:row;
     padding: 20px 10px;
     margin: 0px 20px;
-    
+
 }
 
 .textos{
@@ -59,7 +60,7 @@
 
 .classLivre{
     background-color: rgb(0, 226, 19) !important;
-    
+
     color: #000;
 }
 
