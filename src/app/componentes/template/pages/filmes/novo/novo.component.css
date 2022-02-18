@@ -24,7 +24,7 @@
     border-radius: 20px;
 }
 
-.botoes button{
+.actions button{
     padding: 0px 20px;
     margin: 0px 10px;
     width: 120px;
@@ -33,12 +33,20 @@
     color: #fff;
 }
 
-.btn-salvar{
+.form-field{
+    margin: 10px 0;
+}
+
+.save{
     background-color: #e91e63;
 }
 
-.btn-cancelar{
+.cancel{
     background-color: #d90429;
+}
+
+.field-error{
+    color: #FFFFFF;
 }
 
 input::-webkit-outer-spin-button,

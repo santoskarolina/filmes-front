@@ -1,100 +1,120 @@
-<app-header></app-header>
-
 <div class="container">
+
     <div class="content">
-        <div class="form">
-            <mat-form-field >
+
+        <form class="form" [formGroup]="form">
+
+            <mat-form-field class="form-field">
                 <mat-label>Titulo</mat-label>
-                <input 
-                required
-                matInput 
-                placeholder="Ex. Os vingadores"
-                name="titulo"
-                [(ngModel)]="novoFilme.titulo"
+                <input
+                    matInput
+                    maxlength="255"
+                    autocomplete="off"
+                    placeholder="Os vingadores"
+                    formControlName="titulo"
                 >
+                <mat-error *ngIf="form.get('titulo').hasError('required')" class="field-error">Campo obrigatório</mat-error>
+                <mat-error *ngIf="form.get('titulo').hasError('minlength')" class="field-error">Informe um nome valido</mat-error>
+                <mat-error *ngIf="form.get('titulo').hasError('maxlength')" class="field-error">Tamanho máximo de caracteres</mat-error>
+
             </mat-form-field>
 
-            <mat-form-field >
+            <mat-form-field class="form-field">
                 <mat-label>Link da foto</mat-label>
-                <input 
-                    type="url"
-                    required
-                    matInput 
-                    placeholder="https://www.linkFoto.com/"
-                    name="linkFoto"
-                    [(ngModel)]="novoFilme.linkFoto"
-                    >
+                <input
+                   maxlength="255"
+                   autocomplete="off"
+                   formControlName="linkFoto"
+                   matInput
+                   placeholder="https://www.linkFoto.com/"
+                >
+                <mat-error *ngIf="form.get('linkFoto').hasError('required')" class="field-error">Campo obrigatório</mat-error>
+                <mat-error *ngIf="form.get('linkFoto').hasError('minlength')" class="field-error">Informe uma url valida</mat-error>
+                <mat-error *ngIf="form.get('linkFoto').hasError('maxlength')" class="field-error">Tamanho máximo de caracteres</mat-error>
             </mat-form-field>
 
-            <mat-form-field >
+            <mat-form-field  class="form-field">
                 <mat-label>Ano de lançamento</mat-label>
-                <input 
-                    type="number"
-                    required
-                    matInput 
-                    placeholder="2000"
-                    name="dataLancamento"
-                    [(ngModel)]="novoFilme.dataLancamento"
-                    >
+                <input
+                   maxlength="255"
+                   autocomplete="off"
+                   type="number"
+                   formControlName="dataLancamento"
+                   matInput
+                   placeholder="2000"
+                >
+                <mat-error *ngIf="form.get('dataLancamento').hasError('required')" class="field-error">Campo obrigatório</mat-error>
+                <mat-error *ngIf="form.get('dataLancamento').hasError('minlength')" class="field-error">Informe um ano valido</mat-error>
+                <mat-error *ngIf="form.get('dataLancamento').hasError('maxlength')" class="field-error">Tamanho máximo de caracteres</mat-error>
             </mat-form-field>
 
-            <mat-form-field >
+            <mat-form-field  class="form-field">
                 <mat-label>Descrição</mat-label>
-                <input 
-                    required
-                    matInput 
-                    placeholder="Vingadores encontram Thanos"
-                    name="descricao"
-                    [(ngModel)]="novoFilme.descricao"
-                    >
+                <input
+                   maxlength="255"
+                   autocomplete="off"
+                   formControlName="descricao"
+                   matInput
+                   placeholder="Vingadores encontram Thanos"
+                >
+                <mat-error *ngIf="form.get('descricao').hasError('required')" class="field-error">Campo obrigatório</mat-error>
+                <mat-error *ngIf="form.get('descricao').hasError('minlength')" class="field-error">Descriva mais sobre o filme</mat-error>
+                <mat-error *ngIf="form.get('descricao').hasError('maxlength')" class="field-error">Tamanho máximo de caracteres</mat-error>
             </mat-form-field>
 
-            <mat-form-field >
+            <mat-form-field  class="form-field">
                 <mat-label>Nota</mat-label>
-                <input 
-                    type="number"
-                    required
-                    matInput 
-                    placeholder="10"
-                    name="nota"
-                    [(ngModel)]="novoFilme.nota"
-                    >
+                <input
+                   maxlength="255"
+                   autocomplete="off"
+                   type="number"
+                   formControlName="nota"
+                   matInput
+                   placeholder="10"
+                >
+                <mat-error *ngIf="form.get('nota').hasError('required')" class="field-error">Campo obrigatório</mat-error>
+                <mat-error *ngIf="form.get('nota').hasError('minlength')" class="field-error">Informe uma nota valida</mat-error>
+                <mat-error *ngIf="form.get('nota').hasError('maxlength')" class="field-error">Tamanho máximo de caracteres</mat-error>
             </mat-form-field>
 
-            <mat-form-field >
+            <mat-form-field  class="form-field">
                 <mat-label>Link do IMdb</mat-label>
-                <input 
-                    type="url"
-                    required
-                    matInput 
-                    placeholder="https://www.imdb.com/"
-                    name="linkIMDB"
-                    [(ngModel)]="novoFilme.linkIMDB"
-                    >
+                <input
+                   maxlength="255"
+                   autocomplete="off"
+                   type="url"
+                   matInput
+                   formControlName="linkIMDB"
+                   placeholder="https://www.imdb.com/"
+                >
+                <mat-error *ngIf="form.get('linkIMDB').hasError('required')" class="field-error">Campo obrigatório</mat-error>
+                <mat-error *ngIf="form.get('linkIMDB').hasError('minlength')" class="field-error">Informe uma url valida</mat-error>
+                <mat-error *ngIf="form.get('linkIMDB').hasError('maxlength')" class="field-error">Tamanho máximo de caracteres</mat-error>
             </mat-form-field>
 
-            <mat-form-field class="novo-content">
+            <mat-form-field  class="form-field">
                 <mat-label>Categoria</mat-label>
-                <mat-select [(value)]="novoFilme.categoria" required>
-                  <mat-option *ngFor="let categoria of listCategorias" value="{{categoria.id}}">{{categoria.nome}}</mat-option>
+                <mat-select formControlName="categoria">
+                  <mat-option *ngFor="let categoria of categories" value="{{categoria.id}}">{{categoria.nome}}</mat-option>
                 </mat-select>
+
+                <mat-error *ngIf="form.get('categoria').hasError('required')" class="field-error">Campo obrigatório</mat-error>
               </mat-form-field>
 
-              <mat-form-field class="novo-content">
+              <mat-form-field class="form-field">
                 <mat-label>Classificação</mat-label>
-                <mat-select [(value)]="novoFilme.classificacao" required>
-                  <mat-option *ngFor="let classificacao of listaClassificacoes" value="{{classificacao.id}}">{{classificacao.nome}}</mat-option>
+                <mat-select formControlName="classificacao">
+                  <mat-option *ngFor="let classificacao of classifications" value="{{classificacao.id}}">{{classificacao.nome}}</mat-option>
                 </mat-select>
+
+                  <mat-error *ngIf="form.get('classificacao').hasError('required')" class="field-error">Campo obrigatório</mat-error>
               </mat-form-field>
 
-            <div class="botoes">
-                <button mat-raised-button class="btn-salvar" (click)="salvar()">Salvar</button>
-                <button mat-raised-button class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+            <div class="actions">
+                <button mat-raised-button class="save" (click)="save()" [disabled]="!form.valid">Salvar</button>
+                <button mat-raised-button class="cancel" (click)="cancel()">Cancelar</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
-
-
-<app-footer></app-footer>

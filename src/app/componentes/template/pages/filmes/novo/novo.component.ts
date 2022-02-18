@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriaModel } from '../models/categoria.model';
 import { ClassificacaoModel } from '../models/classificacao.model';
-import { FilmeModel } from '../models/filmes.model';
 import { CategoriaService } from '../services/categoria.service';
 import { ServiceService } from '../services/service.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-novo',
@@ -13,41 +13,27 @@ import { ServiceService } from '../services/service.service';
 })
 export class NovoComponent implements OnInit {
 
-  selected: '';
-  listCategorias: CategoriaModel[] = [];
-  listaClassificacoes:  ClassificacaoModel[] = [];
+  categories: CategoriaModel[] = [];
+  classifications:  ClassificacaoModel[] = [];
 
-  novoFilme: FilmeModel = {
-    titulo: '',
-    linkFoto: '',
-    dataLancamento : '',
-    descricao: '',
-    nota: '',
-    linkIMDB: '',
-    categoria: {
-      id: '',
-      nome: '',
-    },
-    classificacao: {
-      id: '',
-      nome: '',
-    }
-  }
+  form: FormGroup
 
   constructor(
-      private service: ServiceService, 
+      private service: ServiceService,
       private categoria: CategoriaService,
+      private formBuilder: FormBuilder,
       private router: Router) { }
 
   ngOnInit(): void {
-    this.listarCategorias();
+    this.createForm()
+    this.findCategory();
     this.getClassificacoes();
   }
 
-  listarCategorias(): void {
+  findCategory(): void {
     this.categoria.findAllCategorias().subscribe(
       response => {
-        this.listCategorias = response;
+        this.categories = response;
       }
     )
   }
@@ -55,25 +41,65 @@ export class NovoComponent implements OnInit {
   getClassificacoes(): void {
     this.service.getAllClassificacoes().subscribe(
       response => {
-        this.listaClassificacoes = response;
+        this.classifications = response;
       }
     )
   }
 
-  salvar(): void {
-    this.service.novoFilme(this.novoFilme).subscribe(
+  save(): void {
+    this.service.novoFilme(this.form.value).subscribe(
       response => {
         this.service.mensagem("Filme adicionado com sucesso!");
         this.router.navigate(['/filmes']);
-      },err => {
-        for(let i = 0; i < err.error.messageList.length; i++) {
-          this.service.mensagem(err.error.messageList[i].message)
-        }
+      },error => {
+        console.log(error)
+          this.service.mensagem('Não foi possível adicionar o filme')
       }
     )
   }
 
-  cancelar():  void {
+  cancel():  void {
     this.router.navigate(['/filmes'])
+  }
+
+  createForm(){
+    this.form = this.formBuilder.group({
+      titulo: new FormControl(null, [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(255)
+      ]),
+      linkFoto: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(255)
+      ]),
+      dataLancamento: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(255)
+      ]),
+      descricao: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(255)
+      ]),
+      nota: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(255)
+      ]),
+      linkIMDB: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(255)
+      ]),
+      categoria: new FormControl(null, [
+        Validators.required,
+      ]),
+      classificacao: new FormControl(null, [
+        Validators.required,
+      ])
+    })
   }
 }
